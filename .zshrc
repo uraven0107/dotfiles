@@ -22,7 +22,7 @@ HISTSIZE=1000 # メモリに保存される履歴の件数
 SAVEHIST=1000 # 履歴ファイルに保存される履歴の件数
 HISTFILE=~/.zsh_history
 
-# コマンドライン保管機能を有効化して実行
+# コマンドライン補完機能を有効化して実行
 autoload -Uz compinit
 compinit
 
