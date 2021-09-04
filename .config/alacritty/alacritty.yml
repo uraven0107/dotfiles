@@ -5,6 +5,8 @@ env:
 window:
   # 起動時ウィンドウサイズ
   startup_mode: Maximized 
+  # 透過率
+  opacity: 0.95
 
 # p10k用のフォント設定
 font:
@@ -22,5 +24,3 @@ font:
 colors:
  transparent_background_colors: true
 
-# 透過率
-opacity: 0.85
