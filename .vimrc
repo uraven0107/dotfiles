@@ -132,3 +132,5 @@ nmap <Leader>nt :NERDTreeToggle<CR>
 " jj入力でESC
 inoremap <silent> jj <ESC>
 
+" NERDTreeで隠しファイルも表示する
+let NERDTreeShowHidden=1
