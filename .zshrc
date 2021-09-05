@@ -23,8 +23,7 @@ SAVEHIST=1000 # 履歴ファイルに保存される履歴の件数
 HISTFILE=~/.zsh_history
 
 # コマンドライン補完機能を有効化して実行
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 
 # ------------------- zsh補完設定 ここから -------------------- #
 zstyle ':completion:*' auto-description 'specify: %d'
