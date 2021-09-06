@@ -93,8 +93,17 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
+# alias
+alias ls='ls --color=auto'
 alias ll='ls -alF'
+alias g='git'
+alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
 
+# path
 export PATH=$PATH:~/gibo:~/go/bin
 
 
