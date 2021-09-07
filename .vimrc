@@ -113,6 +113,10 @@ set laststatus=2
 " タブサイズ
 set ts=2
 
+" (自動) インデントで使われるタブのサイズ see :help shiftwidth
+" '0'の場合はtabstopの値
+set shiftwidth=0
+
 " goの設定
 augroup go
 	autocmd!
