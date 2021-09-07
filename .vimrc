@@ -1,3 +1,5 @@
+filetype off
+filetype plugin indent off
 " <leader> をスペースキーに割り当てる
 let g:mapleader = "\<Space>"
 
@@ -31,7 +33,7 @@ call dein#add('andymass/vim-matchup')
 call dein#end()
 
 " Required:
-filetype plugin indent on
+" filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
@@ -134,3 +136,5 @@ inoremap <silent> jj <ESC>
 
 " NERDTreeで隠しファイルも表示する
 let NERDTreeShowHidden=1
+
+filetype plugin indent on
