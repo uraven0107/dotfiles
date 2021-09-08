@@ -117,6 +117,9 @@ set ts=2
 " '0'の場合はtabstopの値
 set shiftwidth=0
 
+" ターミナル初期サイズ
+set termwinsize=10x0
+
 " goの設定
 augroup go
 	autocmd!
@@ -130,6 +133,15 @@ augroup go
 	autocmd FileType go nmap <Leader>gt :GoTest ./...<CR>
 	autocmd FileType go nmap <Leader>gtf <Plug>(go-test-func)
 	autocmd FileType go nmap <Leader>gml <Plug>(go-metalinter)
+augroup END
+
+augroup nerdtree
+	autocmd!
+
+	" Start NERDTree when Vim is started without file arguments.
+	autocmd StdinReadPre * let s:std_in=1
+	autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
 augroup END
 
 " toggle NERDTree
