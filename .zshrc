@@ -6,9 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# promptinit関数を有効化して実行
-autoload -Uz promptinit
-promptinit
+# vimキーバインド
+bindkey -v
 
 # ヒストリーに重複を表示しない
 setopt histignorealldups 
@@ -16,30 +15,64 @@ setopt histignorealldups
 setopt sharehistory
 # ディレクトリ名を入力だけでcd実行
 setopt auto_cd
+# cdしたら自動的にpushd
+setopt auto_pushd
+# ctrl+sのロック、ctrl+qのロック解除を無効化
+setopt no_flow_control
 
 # コマンド履歴を'.zsh_history'に1000まで保存する
-HISTSIZE=1000 # メモリに保存される履歴の件数
-SAVEHIST=1000 # 履歴ファイルに保存される履歴の件数
+HISTSIZE=10000 # メモリに保存される履歴の件数
+SAVEHIST=10000 # 履歴ファイルに保存される履歴の件数
 HISTFILE=~/.zsh_history
 
 # コマンドライン補完機能を有効化して実行
 autoload -Uz compinit && compinit
 
 # ------------------- zsh補完設定 ここから -------------------- #
+
+# これなに
 zstyle ':completion:*' auto-description 'specify: %d'
+
+# 補完用の関数(completer)を指定する。
 zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
+
+# 補完時にformatで指定した文字列がマッチ種別一覧で表示されるようになる。
+zstyle ':completion:*' format '<<<=================== Completing %d ===================>>>'
+
+# マッチ種別を別々に表示する。これが無いと、補完時にマッチ種別一覧→マッチ内容の順で表示されてしまう。
 zstyle ':completion:*' group-name ''
+
+# メニュー補完(tabで補完候補を順に挿入してくれるやつ)を利用する
+# select=2 補完候補が2つ以上なければすぐに補完してくれる
 zstyle ':completion:*' menu select=2
+# select=long 補完候補がスクリーンに映らない場合にリスト形式で表示して、カーソルで選択できる。
+#zstyle ':completion:*' menu select=long
+
+# 環境変数LS_COLORSをexport
 eval "$(dircolors -b)"
+# 補完候補一覧の色を設定
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+#zstyle ':completion:*' list-colors ''
+
+# 補完候補一覧表示のプロンプト
+#zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+
+# あいまい検索
+#zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+# 小文字→大文字
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 
+
+# tab選択中のプロンプト
+#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+
+# compctlを利用する
 zstyle ':completion:*' use-compctl false
+
+# 詳細を表示する
+# コマンドのメニュー補完で右側に表示される詳細
 zstyle ':completion:*' verbose true
+
+# killの補完
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # ------------------- zsh補完設定 ここまで -------------------- #
