@@ -36,6 +36,9 @@ call dein#add('mattn/vim-lsp-settings')
 call dein#add('prabirshrestha/asyncomplete.vim')
 call dein#add('prabirshrestha/asyncomplete-lsp.vim')
 
+" test
+call dein#add('vim-test/vim-test')
+
 " go
 call dein#add('mattn/vim-goimports')
 "call dein#add('fatih/vim-go')
@@ -162,5 +165,8 @@ inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 " NERDTreeで隠しファイルも表示する
 let NERDTreeShowHidden=1
+
+" vim-testの結果をterm_start()を使って出力する
+let test#strategy = "vimterminal"
 
 filetype plugin indent on
