@@ -131,6 +131,9 @@ set shiftwidth=0
 " ターミナル初期サイズ
 set termwinsize=10x0
 
+" 保存せずバッファ移動できる
+set hidden
+
 " goの設定
 augroup go
 	autocmd!
