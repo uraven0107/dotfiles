@@ -18,16 +18,27 @@ call dein#begin('~/.cache/dein')
 " Required:
 call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-" Add or remove your plugins here like this:
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
+" util
 call dein#add('vim-jp/vimdoc-ja')
-call dein#add('itchyny/lightline.vim')
-call dein#add('cohama/lexima.vim')
-call dein#add('fatih/vim-go')
 call dein#add('preservim/nerdtree')
+call dein#add('itchyny/lightline.vim')
+
+" 外観
 call dein#add('haishanh/night-owl.vim')
+
+" エディタ
+call dein#add('cohama/lexima.vim')
 call dein#add('andymass/vim-matchup')
+
+" lsp
+call dein#add('prabirshrestha/vim-lsp')
+call dein#add('mattn/vim-lsp-settings')
+call dein#add('prabirshrestha/asyncomplete.vim')
+call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+
+" go
+call dein#add('mattn/vim-goimports')
+"call dein#add('fatih/vim-go')
 
 " Required:
 call dein#end()
@@ -149,6 +160,11 @@ nmap <Leader>nt :NERDTreeToggle<CR>
 
 " jj入力でESC
 inoremap <silent> jj <ESC>
+
+" autocomplete
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 " NERDTreeで隠しファイルも表示する
 let NERDTreeShowHidden=1
