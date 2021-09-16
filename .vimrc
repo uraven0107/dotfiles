@@ -137,16 +137,7 @@ set hidden
 " goの設定
 augroup go
 	autocmd!
-
 	autocmd FileType go set tabstop=4 
-	autocmd FileType go let g:go_auto_sameids = 1
-
-	autocmd FileType go imap <C-o> <C-x><C-o>
-
-	autocmd FileType go nmap <Leader>gd <Plug>(go-def-tab)
-	autocmd FileType go nmap <Leader>gt :GoTest ./...<CR>
-	autocmd FileType go nmap <Leader>gtf <Plug>(go-test-func)
-	autocmd FileType go nmap <Leader>gml <Plug>(go-metalinter)
 augroup END
 
 augroup nerdtree
