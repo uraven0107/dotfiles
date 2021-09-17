@@ -137,11 +137,11 @@ alias gc='git commit'
 alias gp='git push'
 
 # path
-export PATH=$PATH:~/gibo:~/go/bin
-
+typeset -U path
+path=(~/gibo(N-/) ~/go/bin(N-/) $path)
 
 # ------------------- sdkman設定 ここから -------------------- #
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/uraven/.sdkman"
-[[ -s "/home/uraven/.sdkman/bin/sdkman-init.sh" ]] && source "/home/uraven/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 # ------------------- sdkman設定 ここまで -------------------- #
