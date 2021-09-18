@@ -29,6 +29,7 @@ call dein#add('haishanh/night-owl.vim')
 " エディタ
 call dein#add('cohama/lexima.vim')
 call dein#add('andymass/vim-matchup')
+call dein#add('alvan/vim-closetag')
 
 " lsp
 call dein#add('prabirshrestha/vim-lsp')
@@ -131,9 +132,6 @@ set ts=2
 " '0'の場合はtabstopの値
 set shiftwidth=0
 
-" ターミナル初期サイズ
-set termwinsize=10x0
-
 " 保存せずバッファ移動できる
 set hidden
 
@@ -141,6 +139,12 @@ set hidden
 augroup go
 	autocmd!
 	autocmd FileType go set tabstop=4 
+augroup END
+
+" jsの設定
+augroup js
+	autocmd!
+	autocmd FileType javascript set tabstop=4 
 augroup END
 
 augroup nerdtree
@@ -168,5 +172,12 @@ let NERDTreeShowHidden=1
 
 " vim-testの結果をterm_start()を使って出力する
 let test#strategy = "vimterminal"
+
+" closetag有効ファイル
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
+
+" 大文字タグでもclosetag有効化
+let g:closetag_emptyTags_caseSensitive = 1
 
 filetype plugin indent on
