@@ -107,7 +107,6 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/history-search-multi-word
-zinit light supercrabtree/k
 # ------------------- zinit設定 ここまで -------------------- #
 
 
