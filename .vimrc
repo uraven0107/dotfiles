@@ -166,6 +166,11 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
+" fzf key-mappings
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>gf :GFiles<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+
 " NERDTreeで隠しファイルも表示する
 let NERDTreeShowHidden=1
 
@@ -185,9 +190,5 @@ let g:prettier#autoformat = 1
 " tagなしでprettierの自動フォーマットが使える
 let g:prettier#autoformat_require_pragma = 0
 
-" fzf key-mappings
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>gf :GFiles<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
 
 filetype plugin indent on
