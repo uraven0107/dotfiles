@@ -73,8 +73,9 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
 # killの補完
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# fzfとバッティングしているのでコメントアウト
+#zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+#zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # ------------------- zsh補完設定 ここまで -------------------- #
 
 
