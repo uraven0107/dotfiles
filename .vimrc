@@ -1,5 +1,6 @@
 filetype off
 filetype plugin indent off
+
 " <leader> をスペースキーに割り当てる
 let g:mapleader = "\<Space>"
 
@@ -154,15 +155,6 @@ augroup js
 	autocmd FileType javascript set tabstop=4 
 augroup END
 
-augroup nerdtree
-	autocmd!
-
-	" Start NERDTree when Vim is started without file arguments.
-	autocmd StdinReadPre * let s:std_in=1
-	autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-
-augroup END
-
 " toggle NERDTree
 nmap <Leader>nt :NERDTreeToggle<CR> 
 
@@ -192,5 +184,10 @@ let g:prettier#autoformat = 1
 
 " tagなしでprettierの自動フォーマットが使える
 let g:prettier#autoformat_require_pragma = 0
+
+" fzf key-mappings
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>gf :GFiles<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 filetype plugin indent on
