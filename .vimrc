@@ -31,6 +31,10 @@ call dein#add('cohama/lexima.vim')
 call dein#add('andymass/vim-matchup')
 call dein#add('alvan/vim-closetag')
 
+" fzf
+call dein#add('junegunn/fzf', {'build': './install --all'})
+call dein#add('junegunn/fzf.vim')
+
 " lsp
 call dein#add('prabirshrestha/vim-lsp')
 call dein#add('mattn/vim-lsp-settings')

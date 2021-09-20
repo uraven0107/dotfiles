@@ -114,17 +114,20 @@ zinit light supercrabtree/k
 # '.p10k.zsh'読み込み
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# ghq + peco
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ghq + fzf 
+function fzf-src () {
+  local selected_dir=$(ghq list -p | fzf)
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
   zle clear-screen
 }
-zle -N peco-src
-bindkey '^]' peco-src
+zle -N fzf-src
+bindkey '^]' fzf-src
 
 # alias
 alias ls='ls --color=auto'
@@ -145,3 +148,4 @@ path=(~/gibo(N-/) ~/go/bin(N-/) $path)
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 # ------------------- sdkman設定 ここまで -------------------- #
+
