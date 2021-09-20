@@ -44,6 +44,9 @@ call dein#add('vim-test/vim-test')
 call dein#add('mattn/vim-goimports')
 "call dein#add('fatih/vim-go')
 
+" js
+call dein#add('prettier/vim-prettier', {'build': 'npm install'})
+
 " Required:
 call dein#end()
 
@@ -179,5 +182,11 @@ let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
 
 " 大文字タグでもclosetag有効化
 let g:closetag_emptyTags_caseSensitive = 1
+
+" prettier自動フォーマット
+let g:prettier#autoformat = 1
+
+" tagなしでprettierの自動フォーマットが使える
+let g:prettier#autoformat_require_pragma = 0
 
 filetype plugin indent on
