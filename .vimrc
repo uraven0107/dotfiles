@@ -171,6 +171,10 @@ nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>gf :GFiles<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
+" lsp
+nmap <buffer> <leader>ld <plug>(lsp-definition)
+nmap <buffer> <leader>lr <plug>(lsp-references)
+
 " NERDTreeで隠しファイルも表示する
 let NERDTreeShowHidden=1
 
