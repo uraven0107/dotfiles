@@ -172,8 +172,13 @@ nnoremap <silent> <leader>gf :GFiles<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
 " lsp
-nmap <buffer> <leader>ld <plug>(lsp-definition)
-nmap <buffer> <leader>lr <plug>(lsp-references)
+nmap <leader>ld <plug>(lsp-definition)
+nmap <leader>lr <plug>(lsp-references)
+
+" vim-test
+nmap <leader>tf :TestFile<CR>
+nmap <leader>tn :TestNearest<CR>
+nmap <leader>ts :TestSuite<CR>
 
 " NERDTreeで隠しファイルも表示する
 let NERDTreeShowHidden=1
