@@ -42,6 +42,9 @@ call dein#add('mattn/vim-lsp-settings')
 call dein#add('prabirshrestha/asyncomplete.vim')
 call dein#add('prabirshrestha/asyncomplete-lsp.vim')
 
+" debug
+call dein#add('puremourning/vimspector')
+
 " test
 call dein#add('vim-test/vim-test')
 
@@ -143,6 +146,9 @@ set shiftwidth=0
 " 保存せずバッファ移動できる
 set hidden
 
+" 新規ウィンドウを下に配置する
+set splitbelow
+
 " goの設定
 augroup go
 	autocmd!
@@ -183,6 +189,9 @@ nmap <leader>ts :TestSuite<CR>
 " NERDTreeで隠しファイルも表示する
 let NERDTreeShowHidden=1
 
+" NERDTreeでファイルを開いたらNERDTreeを閉じる
+let g:NERDTreeQuitOnOpen=1
+
 " vim-testの結果をterm_start()を使って出力する
 let test#strategy = "vimterminal"
 
@@ -199,5 +208,8 @@ let g:prettier#autoformat = 1
 " tagなしでprettierの自動フォーマットが使える
 let g:prettier#autoformat_require_pragma = 0
 
+" vimspectorのキーマップパターン
+" see https://github.com/puremourning/vimspector#human-mode
+let g:vimspector_enable_mappings = 'HUMAN'
 
 filetype plugin indent on
