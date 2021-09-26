@@ -6,7 +6,7 @@ let g:mapleader = "\<Space>"
 
 "dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible
 endif
 
 " Required:
@@ -105,23 +105,23 @@ set showcmd
 
 " キーコードのタイムアウト設定
 set ttimeout
-set ttimeoutlen=100	
+set ttimeoutlen=200
 
 " ファイルの最後を切り詰める
 set display=truncate
 
 " backupを作成する
 set backup
-set backupdir=~/.vim/tmp
+set backupdir=~/.vim/bk
 
 " undoファイルを作成する
 if has('persistent_undo')
   set undofile
-  set undodir=~/.vim/tmp
+  set undodir=~/.vim/undo
 endif
 
 " swpファイルのディレクトリ
-set directory=~/.vim/tmp
+set directory=~/.vim/swp
 
 " 検索ハイライト
 set hlsearch
@@ -193,23 +193,23 @@ let NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=1
 
 " vim-testの結果をterm_start()を使って出力する
-let test#strategy = "vimterminal"
+let test#strategy="vimterminal"
 
 " closetag有効ファイル
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx'
-let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
+let g:closetag_filenames='*.html,*.xhtml,*.phtml,*.jsx'
+let g:closetag_filetypes='html,xhtml,phtml,javascript'
 
 " 大文字タグでもclosetag有効化
-let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_emptyTags_caseSensitive=1
 
 " prettier自動フォーマット
-let g:prettier#autoformat = 1
+let g:prettier#autoformat=1
 
 " tagなしでprettierの自動フォーマットが使える
-let g:prettier#autoformat_require_pragma = 0
+let g:prettier#autoformat_require_pragma=0
 
 " vimspectorのキーマップパターン
 " see https://github.com/puremourning/vimspector#human-mode
-let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_enable_mappings='HUMAN'
 
 filetype plugin indent on
