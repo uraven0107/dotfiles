@@ -111,17 +111,35 @@ set ttimeoutlen=200
 set display=truncate
 
 " backupを作成する
-set backup
-set backupdir=~/.vim/bk
+augroup bk
+	au!
+	let bk_path = expand('~/.vim/bk')
+	if !isdirectory(bk_path)
+		call mkdir(bk_path)
+	endif
+	execute 'set backupdir=' . bk_path
+	set backup
+augroup END
 
 " undoファイルを作成する
 if has('persistent_undo')
+	let undo_path = expand('~/.vim/undo')
+	if !isdirectory(undo_path)
+		call mkdir(undo_path, 'p')
+	endif
+	execute 'set undodir=' . undo_path
   set undofile
-  set undodir=~/.vim/undo
 endif
 
-" swpファイルのディレクトリ
-set directory=~/.vim/swp
+" swpファイルを作成する
+augroup swp
+	au!
+	let swp_path = expand('~/.vim/swp')
+	if !isdirectory(swp_path)
+		call mkdir(swp_path)
+	endif
+	execute 'set directory=' . swp_path
+augroup END
 
 " 検索ハイライト
 set hlsearch
