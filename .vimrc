@@ -72,9 +72,8 @@ endif
 " カラースキーマの設定
 if (has("termguicolors"))
 	set termguicolors
+	colorscheme night-owl
 endif
-
-colorscheme night-owl
 
 " encoding
 set encoding=utf-8
