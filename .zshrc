@@ -60,13 +60,13 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # あいまい検索
 #zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 # 小文字→大文字
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}'
 
 # tab選択中のプロンプト
 #zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 
 # compctlを利用する
-zstyle ':completion:*' use-compctl false
+#zstyle ':completion:*' use-compctl false
 
 # 詳細を表示する
 # コマンドのメニュー補完で右側に表示される詳細
@@ -92,22 +92,22 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
-
 ### End of Zinit's installer chunk
 
 # zinitプラグイン
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma/history-search-multi-word
+
+# ロードされなかったDL済みのプラグインを削除する
+function delete_plugins() {
+	local downloaded=$(zinit zstatus | grep Downloaded | awk -F ": " '{print $2}')
+	local loaded=$(zinit zstatus | grep Loaded | awk -F ": " '{print $2}')
+	if [[ $downloaded != $loaded ]]; then
+		zinit delete --clean
+	fi
+}
+delete_plugins
 # ------------------- zinit設定 ここまで -------------------- #
 
 
