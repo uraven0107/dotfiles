@@ -118,7 +118,7 @@ delete_plugins
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # ghq + fzf 
-function fzf-src () {
+function fzf_src () {
   local selected_dir=$(ghq list -p | fzf)
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
@@ -126,8 +126,8 @@ function fzf-src () {
   fi
   zle clear-screen
 }
-zle -N fzf-src
-bindkey '^]' fzf-src
+zle -N fzf_src
+bindkey '^]' fzf_src
 
 # alias
 alias ls='ls --color=auto'
