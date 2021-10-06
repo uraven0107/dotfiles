@@ -1,4 +1,5 @@
 format = "$username$hostname$battery$all"
+add_newline = false
 
 [[battery.display]]
 threshold = 100
