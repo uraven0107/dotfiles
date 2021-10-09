@@ -129,6 +129,9 @@ alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
+alias aud='sudo apt update'
+alias aug='sudo apt upgrade -y'
+alias al='sudo apt list --upgradable'
 
 # path
 typeset -U path
